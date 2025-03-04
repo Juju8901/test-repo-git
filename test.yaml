@@ -2,15 +2,11 @@
 gather_facts: true
 hosts: all
 tasks:
-  - name: My first play
-    hosts: myhosts
-      tasks:
+  - name: Ping my hosts
+    ansible.builtin.ping:
 
-        - name: Ping my hosts
-          ansible.builtin.ping:
-
-        - name: Print message
-          ansible.builtin.debug:
-          msg: Hello world
+  - name: Print message
+    ansible.builtin.debug:
+    msg: Hello world
 
         #This has been a test        
