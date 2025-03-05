@@ -1,7 +1,6 @@
 ---
 - name: Ansible patching playbook
   hosts: all
-  become: yes
   tasks:
   
     - name: Install the latest patches from currently enabled repositories
