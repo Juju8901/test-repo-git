@@ -8,6 +8,7 @@
       ansible.builtin.dnf:
         name: "*"
         update_only: yes
+        become: true
 
     - name: Install the latest patches from currently enabled repositories
       ansible.builtin.dnf:
