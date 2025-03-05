@@ -2,7 +2,7 @@
 hosts: all
 gather_facts: true
 tasks:
-  - name: Install the latest version of Apache
+  - name: Install the latest patches from currently enabled repositories
     ansible.builtin.dnf:
       name: "*"
       state: latest
