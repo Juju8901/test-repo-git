@@ -5,13 +5,13 @@
   tasks:
   
     - name: Install the latest patches from currently enabled repositories
-      ansible.builtin.dnf:
+      ansible.builtin.yum:
         name: "*"
         update_only: yes
         become: true
 
     - name: Install the latest patches from currently enabled repositories
-      ansible.builtin.dnf:
+      ansible.builtin.yum:
         name: yum-utils
         become: true
 
