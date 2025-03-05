@@ -8,6 +8,7 @@
     - name: Install the latest patches from currently enabled repositories
       ansible.builtin.yum:
         name: "*"
+        update_only: yes
 
     - name: Install the latest patches from currently enabled repositories
       ansible.builtin.yum:
