@@ -12,6 +12,7 @@
     - name: Install the latest patches from currently enabled repositories
       ansible.builtin.dnf:
         name: yum-utils
+        become: true
 
     - name: Check if a reboot is required using needs-restarting
       ansible.builtin.command: "needs-restarting -r"
