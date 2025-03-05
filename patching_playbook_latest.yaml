@@ -1,5 +1,8 @@
 ---
-- name: Install the latest version of Apache
-  ansible.builtin.dnf:
-    name: "*"
-    state: latest
+hosts: all
+gather_facts: true
+tasks:
+  - name: Install the latest version of Apache
+    ansible.builtin.dnf:
+      name: "*"
+      state: latest
