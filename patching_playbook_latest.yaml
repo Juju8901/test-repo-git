@@ -5,4 +5,3 @@
     - name: Install the latest patches from currently enabled repositories
       ansible.builtin.dnf:
       name: "*"
-      state: latest
