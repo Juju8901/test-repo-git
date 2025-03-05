@@ -1,8 +1,8 @@
 ---
-hosts: all
-gather_facts: true
-tasks:
-  - name: Install the latest patches from currently enabled repositories
-    ansible.builtin.dnf:
+- name: Ansible patching playbook
+  hosts: all
+  tasks:
+    - name: Install the latest patches from currently enabled repositories
+      ansible.builtin.dnf:
       name: "*"
       state: latest
