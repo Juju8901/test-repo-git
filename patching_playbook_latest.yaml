@@ -1,6 +1,6 @@
 ---
 - name: Ansible patching playbook
-  hosts: all
+  hosts: localhost
   tasks:
   
     - name: Install the latest patches from currently enabled repositories
