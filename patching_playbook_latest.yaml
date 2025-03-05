@@ -7,3 +7,29 @@
       ansible.builtin.dnf:
         name: "*"
         update_only: yes
+
+    - name: Install the latest patches from currently enabled repositories
+      ansible.builtin.dnf:
+        name: yum-utils
+
+    - name: Check if a reboot is required using needs-restarting
+      ansible.builtin.command: "needs-restarting -r"
+      register: reboot_check
+      changed_when: false
+      ignore_errors: yes
+
+    - name: Set reboot flag based on needs-restarting result
+      ansible.builtin.set_fact:
+        reboot_required: "{{ reboot_check.rc != 0 }}"
+        
+    - name: Reboot the system if required
+      ansible.builtin.reboot:
+        msg: "Reboot initiated by Ansible after updates"
+        reboot_timeout: 600
+      when: reboot_required
+
+    - name: Wait for system to come back online after reboot
+      ansible.builtin.wait_for_connection:
+        delay: 10
+        timeout: 300
+      when: reboot_required
